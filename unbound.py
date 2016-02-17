@@ -39,7 +39,7 @@ def fetch_stats():
     return_code = proc.wait()
 
     if return_code > 0:
-        collectd.error('ubnound plugin: Error code collecting stats %d' % return_code)
+        collectd.error('unbound plugin: Error code collecting stats %d' % return_code)
     else:
         for line in proc.stdout:
             yield parse_stat(line.rstrip())
@@ -68,7 +68,7 @@ def read_callback():
 def log_verbose(msg):
     if not VERBOSE_LOGGING:
         return
-    collectd.info('mesos plugin [verbose]: %s' % msg)
+    collectd.info('unbound plugin [verbose]: %s' % msg)
 
 
 collectd.register_config(configure_callback)
